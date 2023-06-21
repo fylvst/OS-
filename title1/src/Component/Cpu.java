@@ -1,9 +1,6 @@
 package Component;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Collections;
+import java.util.*;
 
 class sjfComparator implements Comparator<Process>{
   public int compare(Process p1, Process p2) {
@@ -74,6 +71,10 @@ public class Cpu {
     this.state = 1;
     p.setServedTime(p.getServedTime()+1);
     p.getPcb().setState(2);
+    checkAndAdd();
+  }
+
+  public void checkAndAdd() {
     for(int i=0;i< Process.processes.size();i++){
       if(Process.processes.get(i).getArriveTime() == this.time){
         Process.processes.get(i).getPcb().setState(1);
@@ -98,22 +99,16 @@ public class Cpu {
       this.arriveList.remove(p);
     }
     else {p.getPcb().setState(2);}
-    for(int i=0;i<Process.processes.size();i++){
-      Process p1 = Process.processes.get(i);
-      if(p1.getArriveTime() == this.time){
-        p1.getPcb().setState(1);
-        this.arriveList.add(p1);
-        Process.processes.remove(p1);
-        i--;
-      }
-    }
+    checkAndAdd();
     if(type.equals("sjf")){
       Collections.sort(arriveList, new sjfComparator());
     }
     else if(type.equals("priority")){
       Collections.sort(arriveList, new priorityComparator());
     }
-    else{
+    else if (type.equals("hrrn")) {
+      updateRR();
+    } else{
       for(int i=1;i<arriveList.size();i++){
         int tmp = arriveList.get(i).getServedTime();
         arriveList.get(i).setPriority((arriveList.get(i).getWaitTime()+tmp)/tmp);
@@ -122,15 +117,17 @@ public class Cpu {
     }
   }
 
+  //更新响应比,并按降序排列
+  public void updateRR() {
+    for (Process p:
+         this.arriveList) {
+      p.setRR(1+(float)(this.time-p.getArriveTime())/p.getRuntime());
+    }
+    this.arriveList.sort((p1, p2)->Float.compare(p2.getRR(), p1.getRR()));
+  }
+
   public void hold(){//待机状态，等待下一个到达的进程
     this.time++;
-    for(int i=0;i<Process.processes.size();i++){
-      if(Process.processes.get(i).getArriveTime() == this.time){
-        Process.processes.get(i).getPcb().setState(1);
-        this.arriveList.add(Process.processes.get(i));
-        Process.processes.remove(Process.processes.get(i));
-        i--;
-      }
-    }
+    checkAndAdd();
   }
 }

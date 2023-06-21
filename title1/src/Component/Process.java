@@ -41,7 +41,7 @@ public class Process {
   private int runtime; //需要运行时间
   private int finishTime; //进程结束时的时间
   private int cyclyingTime;//进程周转时间
-  private int RR;//当前进程的相应比
+  private float RR;//当前进程的相应比
   private PCB pcb;
 
   public Process(){
@@ -112,6 +112,14 @@ public class Process {
 
   public int getBeginTime() {
     return beginTime;
+  }
+
+  public float getRR() {
+    return RR;
+  }
+
+  public void setRR(float RR) {
+    this.RR = RR;
   }
 
   public void setBeginTime(int beginTime) {

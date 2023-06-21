@@ -107,7 +107,11 @@ public class Algorithm {
         cpu.hold();
       }
       while(!cpu.arriveList.isEmpty()){
-        cpu.run(cpu.arriveList.get(0),"hrrn");
+        cpu.run(cpu.arriveList.get(0));
+        if(cpu.checkComplete(cpu.arriveList.get(0))){
+          cpu.arriveList.remove(cpu.arriveList.get(0));
+          cpu.updateRR();
+        }
       }
     }
   }
