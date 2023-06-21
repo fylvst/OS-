@@ -15,6 +15,9 @@ public class Algorithm {
       }
       while(!cpu.arriveList.isEmpty()){
         cpu.run(cpu.arriveList.get(0));
+        if(cpu.checkComplete(cpu.arriveList.get(0))){
+          cpu.arriveList.remove(cpu.arriveList.get(0));
+        }
       }
     }
   }
@@ -49,11 +52,11 @@ public class Algorithm {
         cpu.hold();
       }
       while(!cpu.arriveList.isEmpty()){
+        int flag = 0;
         for(int i=0;i<slice;i++){
+          flag = 0;
           if(cpu.checkComplete(cpu.arriveList.get(0))){
-            for(int j=i;j<slice;j++){
-              cpu.hold();
-            }
+            flag = 1;
             cpu.arriveList.remove(cpu.arriveList.get(0));
             break;
           }
@@ -61,7 +64,11 @@ public class Algorithm {
             cpu.run(cpu.arriveList.get(0));
           }
         }
-        if(cpu.arriveList.size()>1) {
+        if(cpu.arriveList.size()>1 && cpu.checkComplete(cpu.arriveList.get(0))){
+          flag = 1;
+          cpu.arriveList.remove(cpu.arriveList.get(0));
+        }
+        if(cpu.arriveList.size()>1 && flag == 0) {
           Process tmp = cpu.arriveList.get(0);
           cpu.arriveList.remove(tmp);
           cpu.arriveList.add(tmp);
@@ -76,6 +83,17 @@ public class Algorithm {
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
+      Collections.sort(cpu.arriveList, new Comparator<Process>() {
+        @Override
+        public int compare(Process o1, Process o2) {
+          if(o1.getPriority() > o2.getPriority()){
+            return 1;
+          }
+          else{
+            return -1;
+          }
+        }
+      });
       while(!cpu.arriveList.isEmpty()){
         cpu.run(cpu.arriveList.get(0),"priority");
       }
