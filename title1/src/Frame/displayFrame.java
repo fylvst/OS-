@@ -1,6 +1,7 @@
 package Frame;
 
 import Component.Algorithm;
+import Component.GlobalVar;
 
 import Component.Cpu;
 import Component.Process;
@@ -141,13 +142,7 @@ public class displayFrame extends JFrame {
     this.pause.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-//        if(flag == 1){
-//          flag =0;
-//        }
-//        else{
-//          flag = 1;
-//          start();
-//        }
+        GlobalVar.flag = !GlobalVar.flag;
       }
     });
 
@@ -178,7 +173,7 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        File f = new File("D:\\OS\\OS-\\title1");
+        File f = new File("D:\\2023.6.19\\OS-\\title1");
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         chooser.setCurrentDirectory(f);
 

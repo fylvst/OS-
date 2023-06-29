@@ -13,27 +13,27 @@ public class updateFrame {
             public void run() {
 
                 switch (selected){
-                    case "FIFO"->{
+                    case "FIFO": {
                         try {
                             Algorithm.fifo();
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
                     }
-                    case "SJF"->{
+                    case "SJF": {
                         Algorithm.sjf();
                     }
-                    case "RR"->{
+                    case "RR": {
                         try {
                             Algorithm.rr(3);
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
                     }
-                    case "PRIORITY"->{
+                    case "PRIORITY": {
                         Algorithm.priority();
                     }
-                    case "HRRN"->{
+                    case "HRRN": {
                         try {
                             Algorithm.hrrn();
                         } catch (InterruptedException ex) {

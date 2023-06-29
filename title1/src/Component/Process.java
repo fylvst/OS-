@@ -59,6 +59,12 @@ public class Process {
     this.RR = 0;
   }
 
+  public int getID() {
+    return pcb.getPid();
+  }
+  public int getCyclyingTime(){
+    return this.cyclyingTime;
+  }
   public void set(Process p){
     this.arriveTime = p.arriveTime;
     this.pcb = p.pcb;
