@@ -4,6 +4,7 @@ import Component.Algorithm;
 import Component.Process;
 
 import static Component.Cpu.cpu;
+import static Component.GlobalVar.clickFlag;
 
 public class updateFrame {
 
@@ -21,7 +22,11 @@ public class updateFrame {
                         }
                     }
                     case "SJF": {
-                        Algorithm.sjf();
+                        try {
+                            Algorithm.sjf();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     case "RR": {
                         try {
@@ -31,7 +36,11 @@ public class updateFrame {
                         }
                     }
                     case "PRIORITY": {
-                        Algorithm.priority();
+                        try {
+                            Algorithm.priority();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     case "HRRN": {
                         try {
@@ -42,8 +51,11 @@ public class updateFrame {
                     }
                 }
                 displayFrame.display(cpu.getTime(),p);
+                clickFlag=true;
             }
         }).start();
+
+
     }
 
 

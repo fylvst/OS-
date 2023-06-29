@@ -97,6 +97,7 @@ public class Process {
       p.finishTime = 0;
       p.pcb.setState(0);
       p.waitTime = 0;
+      p.RR=0;
     }
   }
 

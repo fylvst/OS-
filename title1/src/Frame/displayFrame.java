@@ -15,6 +15,7 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import static Component.Cpu.cpu;
+import static Component.GlobalVar.clickFlag;
 
 public class displayFrame extends JFrame {
   public static JScrollPane jsp;
@@ -131,11 +132,17 @@ public class displayFrame extends JFrame {
     this.start.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        if(!clickFlag){
+          return;
+        }
+
+        clickFlag=false;
         Process.resetList();
         cpu=new Cpu();
         String selected = (String) jcb.getSelectedItem();
         updateFrame.drawRoute(selected,p);
         displayFrame.display(cpu.getTime(),p);
+        System.out.println(1);
       }
     });
     /******按钮 “取消”的响应*****/

@@ -24,7 +24,7 @@ public class Algorithm {
 
   }
 
-  public static void sjf(){
+  public static void sjf() throws InterruptedException {
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
@@ -78,7 +78,7 @@ public class Algorithm {
     }
   }
 
-  public static void priority(){
+  public static void priority() throws InterruptedException {
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
@@ -112,7 +112,9 @@ public class Algorithm {
           cpu.arriveList.remove(cpu.arriveList.get(0));
           cpu.updateRR();
         }
+
       }
+
     }
   }
 }

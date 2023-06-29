@@ -97,7 +97,7 @@ public static Cpu cpu;
     }
   }
 
-  public void run(Process p, String type){
+  public void run(Process p, String type) throws InterruptedException {
     this.time++;
     this.state = 1;
     for(int i = 1;i < arriveList.size();i++){
@@ -127,6 +127,11 @@ public static Cpu cpu;
         arriveList.get(i).setPriority((arriveList.get(i).getWaitTime()+tmp)/tmp);
       }
       Collections.sort(arriveList, new priorityComparator());
+    }
+    displayFrame.display(this.time,p);
+    Thread.sleep(1000);
+    while (GlobalVar.flag) {
+      Thread.sleep(500);
     }
   }
 
