@@ -9,6 +9,9 @@ import java.util.Vector;
 import Component.*;
 import Component.Process;
 
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+
 
 public class ProcessesList {
 
@@ -41,7 +44,7 @@ public class ProcessesList {
     }
 
 
-    public static void ProcessesList(Cpu cpu) {
+    public static void ProcessesListFrame(Cpu cpu) {
         JFrame frame = new JFrame("测试窗口");
         frame.setSize(600, 500);
         frame.setLocationRelativeTo(null);
@@ -69,7 +72,7 @@ public class ProcessesList {
         frame.add(jsp3);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
+        frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
 

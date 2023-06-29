@@ -173,7 +173,7 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        File f = new File("D:\\2023.6.19\\OS-\\title1");
+        File f = new File("D:\\OS\\OS-\\title1");
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         chooser.setCurrentDirectory(f);
 
@@ -198,6 +198,15 @@ public class displayFrame extends JFrame {
         display(t,p);
       }
     });
+
+      this.check.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              ProcessesList.ProcessesListFrame(cpu);
+          }
+      });
+
+
 
     add(jsp);
     add(this.start);
