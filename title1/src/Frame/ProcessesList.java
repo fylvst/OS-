@@ -52,7 +52,9 @@ public class ProcessesList {
         frame.setLayout(new FlowLayout());
         ArrayList<Process> curr = new ArrayList<>();
         curr.add(cpu.arriveList.get(0));
-        JTable jTable1 = q(cpu.arriveList);
+        ArrayList<Process> newl = new ArrayList<>(cpu.arriveList);
+        newl.remove(0);
+        JTable jTable1 = q(newl);
         JTable jTable2 = q(cpu.finishList);
         JTable jTable3 = q(curr);
         JScrollPane jsp1 = new JScrollPane(jTable1);
