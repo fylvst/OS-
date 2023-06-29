@@ -45,7 +45,7 @@ public class Process {
   private PCB pcb;
 
   public Process(){
-
+    this.pcb = new PCB();
   }
 
   public Process(String name, int priority, int arriveTime, int runtime) {
@@ -54,6 +54,17 @@ public class Process {
     this.arriveTime = arriveTime;
     this.runtime = runtime;
     this.pcb = new PCB();
+    this.servedTime = 0;
+    this.finishTime = 0;
+    this.RR = 0;
+  }
+
+  public void set(Process p){
+    this.arriveTime = p.arriveTime;
+    this.pcb = p.pcb;
+    this.name = p.name;
+    this.runtime = p.runtime;
+    this.priority = p.priority;
   }
 
   @Override
@@ -74,6 +85,15 @@ public class Process {
             '}';
   }
 
+  public static void resetList(){
+    for(Process p : processes){
+      p.servedTime = 0;
+      p.finishTime = 0;
+      p.pcb.setState(0);
+      p.waitTime = 0;
+    }
+  }
+
   public int getArriveTime() {
     return arriveTime;
   }
@@ -84,6 +104,10 @@ public class Process {
 
   public PCB getPcb() {
     return pcb;
+  }
+
+  public int getFinishTime() {
+    return finishTime;
   }
 
   public int getServedTime() {
@@ -116,6 +140,26 @@ public class Process {
 
   public float getRR() {
     return RR;
+  }
+
+  public void setRuntime(int runtime) {
+    this.runtime = runtime;
+  }
+
+  public void setArriveTime(int arriveTime) {
+    this.arriveTime = arriveTime;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getState(){
+    return this.pcb.getState();
   }
 
   public void setRR(float RR) {

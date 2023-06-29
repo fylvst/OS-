@@ -1,30 +1,35 @@
-import Component.Cpu;
+package Component;
+
+import Component.*;
 import Component.Process;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class Algorithm {
 
-  public static void fifo(){
+  public static void fifo() throws InterruptedException {
+    Process.resetList();
     Cpu cpu = new Cpu();
-    while(!Process.processes.isEmpty()) {
+    cpu.finishList.clear();
+    while(!cpu.waitList.isEmpty()) {
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
       while(!cpu.arriveList.isEmpty()){
         cpu.run(cpu.arriveList.get(0));
         if(cpu.checkComplete(cpu.arriveList.get(0))){
+          cpu.finishList.add(cpu.arriveList.get(0));
           cpu.arriveList.remove(cpu.arriveList.get(0));
         }
       }
     }
+
   }
 
   public static void sjf(){
     Cpu cpu = new Cpu();
-    while(!Process.processes.isEmpty()){
+    while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
@@ -45,9 +50,9 @@ public class Algorithm {
     }
   }
 
-  public static void rr(int slice){
+  public static void rr(int slice) throws InterruptedException {
     Cpu cpu = new Cpu();
-    while(!Process.processes.isEmpty()){
+    while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
@@ -57,6 +62,7 @@ public class Algorithm {
           flag = 0;
           if(cpu.checkComplete(cpu.arriveList.get(0))){
             flag = 1;
+            cpu.finishList.add(cpu.arriveList.get(0));
             cpu.arriveList.remove(cpu.arriveList.get(0));
             break;
           }
@@ -79,7 +85,7 @@ public class Algorithm {
 
   public static void priority(){
     Cpu cpu = new Cpu();
-    while(!Process.processes.isEmpty()){
+    while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
@@ -100,15 +106,16 @@ public class Algorithm {
     }
   }
 
-  public static void hrrn(){
+  public static void hrrn() throws InterruptedException {
     Cpu cpu = new Cpu();
-    while(!Process.processes.isEmpty()){
+    while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
       while(!cpu.arriveList.isEmpty()){
         cpu.run(cpu.arriveList.get(0));
         if(cpu.checkComplete(cpu.arriveList.get(0))){
+          cpu.finishList.add(cpu.arriveList.get(0));
           cpu.arriveList.remove(cpu.arriveList.get(0));
           cpu.updateRR();
         }

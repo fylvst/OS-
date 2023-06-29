@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="swing_2007">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../swing_2007/classes/artifacts/swing_2007_jar/swing_2007.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

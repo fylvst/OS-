@@ -1,4 +1,6 @@
 package Component;
+import Component.*;
+import Frame.displayFrame;
 
 import java.util.*;
 
@@ -15,7 +17,7 @@ class sjfComparator implements Comparator<Process>{
 
 class priorityComparator implements Comparator<Process>{
   public int compare(Process p1, Process p2) {
-    if(p1.getPriority() > p2.getPriority()){
+    if(p1.getPriority() < p2.getPriority()){
       return 1;
     }
     else{
@@ -30,6 +32,8 @@ public class Cpu {
   private int time;//cpu计时器
   private int state;//cpu状态，1为被占用，0为空闲
   public ArrayList<Process> arriveList;
+  public ArrayList<Process> waitList;
+  public ArrayList<Process> finishList;
 
   public void setTime(int time) {
     this.time = time;
@@ -51,6 +55,9 @@ public class Cpu {
     this.time = 0;
     this.state = 0;
     this.arriveList = new ArrayList<>();
+    this.waitList = new ArrayList<>();
+    this.finishList = new ArrayList<>();
+    this.waitList = new ArrayList<>(Process.processes);
   }
 
   public boolean checkComplete(Process p){
@@ -63,7 +70,7 @@ public class Cpu {
     return false;
   }
 
-  public void run(Process p){//cpu被进程p占用
+  public void run(Process p) throws InterruptedException {//cpu被进程p占用
     if(p.getServedTime()==0){
       p.setBeginTime(this.time);
     }
@@ -72,14 +79,16 @@ public class Cpu {
     p.setServedTime(p.getServedTime()+1);
     p.getPcb().setState(2);
     checkAndAdd();
+    displayFrame.display(this.time,p);
+    Thread.sleep(1);
   }
 
   public void checkAndAdd() {
-    for(int i=0;i< Process.processes.size();i++){
-      if(Process.processes.get(i).getArriveTime() == this.time){
-        Process.processes.get(i).getPcb().setState(1);
-        this.arriveList.add(Process.processes.get(i));
-        Process.processes.remove(Process.processes.get(i));
+    for(int i=0;i< this.waitList.size();i++){
+      if(this.waitList.get(i).getArriveTime() == this.time){
+        this.waitList.get(i).getPcb().setState(1);
+        this.arriveList.add(this.waitList.get(i));
+        this.waitList.remove(this.waitList.get(i));
         i--;
       }
     }
@@ -96,6 +105,7 @@ public class Cpu {
       p.getPcb().setState(-1);
       p.setFinishTime(this.time);
       System.out.println(p.toString());
+      this.finishList.add(p);
       this.arriveList.remove(p);
     }
     else {p.getPcb().setState(2);}

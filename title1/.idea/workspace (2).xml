@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8184851a-3422-41f0-bde0-84758b81f7f8" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/FileItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/FileListRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/MyDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/MyFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/MyListBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/res/file.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/res/folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/res/open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/FileManager/util/SwingUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/displayFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frame/newProcessFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/Cpu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Cpu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frame/Select.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/title1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/title1.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2RPjhzPVZ6lhENoGDRdwwS0A2BX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../swing_2007/lib/af-swing-1.0-build20210918.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.MyDemo">
+    <configuration name="MyDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Frame.FileManager.MyDemo" />
+      <module name="title1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Frame.FileManager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="title1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MyDemo" />
+        <item itemvalue="Application.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8184851a-3422-41f0-bde0-84758b81f7f8" name="Changes" comment="" />
+      <created>1687158733749</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687158733749</updated>
+      <workItem from="1687158735066" duration="618000" />
+      <workItem from="1687161536804" duration="4008000" />
+      <workItem from="1687221223531" duration="761000" />
+      <workItem from="1687222109452" duration="17359000" />
+      <workItem from="1687307545007" duration="7368000" />
+      <workItem from="1687653866361" duration="6369000" />
+      <workItem from="1687747200302" duration="206000" />
+      <workItem from="1687747418992" duration="700000" />
+      <workItem from="1687748219679" duration="3998000" />
+      <workItem from="1687826816478" duration="18941000" />
+      <workItem from="1687912200369" duration="7037000" />
+    </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1687247922832</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687247922832</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1687310009347</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687310009348</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

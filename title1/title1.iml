@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="af-swing-1.0-build20210918" level="project" />
+    <orderEntry type="library" name="swing_2007" level="project" />
   </component>
 </module>
