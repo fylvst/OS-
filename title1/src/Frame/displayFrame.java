@@ -7,6 +7,7 @@ import Component.Cpu;
 import Component.Process;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import static Component.Cpu.cpu;
+import static Component.GlobalVar.clickFlag;
 
 public class displayFrame extends JFrame {
   public static JScrollPane jsp;
@@ -119,7 +121,7 @@ public class displayFrame extends JFrame {
       info[i][3] = Process.processes.get(i).getRuntime();
       info[i][4] = Process.processes.get(i).getFinishTime();
       info[i][5] = Process.processes.get(i).getPriority();
-      info[i][6] = Process.processes.get(i).getRR();
+      info[i][6] = Process.processes.get(i).getCyclingTime();
       info[i][7] = Process.processes.get(i).getState();
     }
     String[] title = {"PID","到达时间","服务时间","运行时间","完成时间","优先级","周转时间","当前状态"};
@@ -131,6 +133,12 @@ public class displayFrame extends JFrame {
     this.start.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        if(!clickFlag){
+          return;
+        }
+        clickFlag=false;
+
+
         Process.resetList();
         cpu=new Cpu();
         String selected = (String) jcb.getSelectedItem();
@@ -173,7 +181,7 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        File f = new File("D:\\2023.6.19\\OS-\\title1");
+        File f = new File("D:\\OS\\OS-\\title1");
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         chooser.setCurrentDirectory(f);
 
@@ -210,6 +218,17 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         ProcessesList.ProcessesListFrame(cpu);
+      }
+    });
+
+    this.compare.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        BarChartFrame chart = new BarChartFrame("Main Panel Title!");
+        chart.pack();
+        chart.setMinimumSize(new Dimension(1200, 600));
+        chart.setPreferredSize(new Dimension(1200, 600));
+        chart.setVisible(true);
       }
     });
 

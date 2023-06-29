@@ -56,7 +56,7 @@ public class Process {
     this.pcb = new PCB();
     this.servedTime = 0;
     this.finishTime = 0;
-    this.RR = 0;
+    this.cyclingTime = 0;
   }
 
   public int getID() {
@@ -97,7 +97,7 @@ public class Process {
       p.finishTime = 0;
       p.pcb.setState(0);
       p.waitTime = 0;
-      p.RR=0;
+      p.cyclingTime=0;
     }
   }
 
