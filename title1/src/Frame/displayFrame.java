@@ -58,7 +58,7 @@ public class displayFrame extends JFrame {
       info[i][3] = Process.processes.get(i).getServedTime();
       info[i][4] = Process.processes.get(i).getFinishTime();
       info[i][5] = Process.processes.get(i).getPriority();
-      info[i][6] = Process.processes.get(i).getRR();
+      info[i][6] = Process.processes.get(i).getCyclingTime();
       info[i][7] = Process.processes.get(i).getState();
     }
     table = new JTable(info,title);
