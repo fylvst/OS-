@@ -1,23 +1,20 @@
 package Component;
 
-import Component.*;
-import Component.Process;
-
 import java.util.Collections;
 import java.util.Comparator;
+
+import static Component.Cpu.cpu;
 
 public class Algorithm {
 
   public static void fifo() throws InterruptedException {
-    Process.resetList();
-    Cpu cpu = new Cpu();
-    cpu.finishList.clear();
     while(!cpu.waitList.isEmpty()) {
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
       }
       while(!cpu.arriveList.isEmpty()){
         cpu.run(cpu.arriveList.get(0));
+
         if(cpu.checkComplete(cpu.arriveList.get(0))){
           cpu.finishList.add(cpu.arriveList.get(0));
           cpu.arriveList.remove(cpu.arriveList.get(0));
@@ -28,7 +25,6 @@ public class Algorithm {
   }
 
   public static void sjf(){
-    Cpu cpu = new Cpu();
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
@@ -51,7 +47,6 @@ public class Algorithm {
   }
 
   public static void rr(int slice) throws InterruptedException {
-    Cpu cpu = new Cpu();
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
@@ -84,7 +79,6 @@ public class Algorithm {
   }
 
   public static void priority(){
-    Cpu cpu = new Cpu();
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();
@@ -107,7 +101,6 @@ public class Algorithm {
   }
 
   public static void hrrn() throws InterruptedException {
-    Cpu cpu = new Cpu();
     while(!cpu.waitList.isEmpty()){
       while(cpu.arriveList.isEmpty()){
         cpu.hold();

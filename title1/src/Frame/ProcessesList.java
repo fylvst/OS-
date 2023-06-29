@@ -1,3 +1,4 @@
+package Frame;
 
 import javax.swing.*;
 
@@ -16,13 +17,13 @@ public class ProcessesList {
         Vector v = new Vector();
         for (Process p : processArrayList) {
             Vector Vector1 = new Vector();
-            Vector1.add(p.getID());
+            Vector1.add(p.getName());
             Vector1.add(p.getArriveTime());
             Vector1.add(p.getServedTime());
             Vector1.add(p.getRuntime());
             Vector1.add(p.getWaitTime());
             Vector1.add(p.getPriority());
-            Vector1.add(p.getCyclyingTime());
+            Vector1.add(p.getRR());
             v.add(Vector1);
         }
 //        Vector<Process> v = new Vector<Process>(processArrayList);

@@ -28,6 +28,7 @@ class priorityComparator implements Comparator<Process>{
 
 
 public class Cpu {
+  static  public Cpu cpu = new Cpu();
 
   private int time;//cpu计时器
   private int state;//cpu状态，1为被占用，0为空闲
@@ -76,12 +77,15 @@ public class Cpu {
     }
     this.time++;
     this.state = 1;
+    displayFrame.display(this.time,p);
     p.setServedTime(p.getServedTime()+1);
     p.getPcb().setState(2);
     checkAndAdd();
     displayFrame.display(this.time,p);
-    Thread.sleep(1);
+//    System.out.println(p);
+    Thread.sleep(1000);
   }
+
 
   public void checkAndAdd() {
     for(int i=0;i< this.waitList.size();i++){
@@ -97,6 +101,7 @@ public class Cpu {
   public void run(Process p, String type){
     this.time++;
     this.state = 1;
+    displayFrame.display(this.time,p);
     for(int i = 1;i < arriveList.size();i++){
       arriveList.get(i).setWaitTime(arriveList.get(i).getWaitTime()+1);
     }

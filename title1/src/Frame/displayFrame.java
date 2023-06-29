@@ -2,6 +2,7 @@ package Frame;
 
 import Component.Algorithm;
 
+import Component.Cpu;
 import Component.Process;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
@@ -11,6 +12,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+
+import static Component.Cpu.cpu;
 
 public class displayFrame extends JFrame {
   public static JScrollPane jsp;
@@ -33,9 +36,9 @@ public class displayFrame extends JFrame {
 
   {
     try {
-      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+      for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
         if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
+          UIManager.setLookAndFeel(info.getClassName());
           break;
         }
       }
@@ -127,19 +130,24 @@ public class displayFrame extends JFrame {
     this.start.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        try {
-          Algorithm.fifo();
-        } catch (InterruptedException ex) {
-          ex.printStackTrace();
-        }
-        display(t,p);
+        Process.resetList();
+        cpu=new Cpu();
+        String selected = (String) jcb.getSelectedItem();
+        updateFrame.drawRoute(selected,p);
+        displayFrame.display(cpu.getTime(),p);
       }
     });
     /******按钮 “取消”的响应*****/
     this.pause.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        System.exit(0);
+//        if(flag == 1){
+//          flag =0;
+//        }
+//        else{
+//          flag = 1;
+//          start();
+//        }
       }
     });
 
@@ -170,7 +178,7 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        File f = new File("D:\\专业课\\OS\\OS-\\src");
+        File f = new File("D:\\OS\\OS-\\title1");
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         chooser.setCurrentDirectory(f);
 
