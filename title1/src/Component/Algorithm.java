@@ -1,5 +1,7 @@
 package Component;
 
+import Frame.BarChartFrame;
+
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -21,7 +23,7 @@ public class Algorithm {
         }
       }
     }
-
+    BarChartFrame.add(0);
   }
 
   public static void sjf() throws InterruptedException {
@@ -44,6 +46,7 @@ public class Algorithm {
         cpu.run(cpu.arriveList.get(0),"sjf");
       }
     }
+    BarChartFrame.add(1);
   }
 
   public static void rr(int slice) throws InterruptedException {
@@ -76,6 +79,7 @@ public class Algorithm {
         }
       }
     }
+    BarChartFrame.add(2);
   }
 
   public static void priority() throws InterruptedException {
@@ -98,6 +102,7 @@ public class Algorithm {
         cpu.run(cpu.arriveList.get(0),"priority");
       }
     }
+    BarChartFrame.add(3);
   }
 
   public static void hrrn() throws InterruptedException {
@@ -116,5 +121,6 @@ public class Algorithm {
       }
 
     }
+    BarChartFrame.add(4);
   }
 }

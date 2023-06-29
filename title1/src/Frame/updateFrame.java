@@ -20,6 +20,7 @@ public class updateFrame {
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
+                        break;
                     }
                     case "SJF": {
                         try {
@@ -27,6 +28,7 @@ public class updateFrame {
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
+                        break;
                     }
                     case "RR": {
                         try {
@@ -34,6 +36,7 @@ public class updateFrame {
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
+                        break;
                     }
                     case "PRIORITY": {
                         try {
@@ -41,6 +44,7 @@ public class updateFrame {
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
+                        break;
                     }
                     case "HRRN": {
                         try {
@@ -48,6 +52,7 @@ public class updateFrame {
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
+                        break;
                     }
                 }
                 displayFrame.display(cpu.getTime(),p);

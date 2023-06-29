@@ -40,7 +40,7 @@ public class Process {
   private int waitTime; //进程等待时间
   private int runtime; //需要运行时间
   private int finishTime; //进程结束时的时间
-  private int cyclyingTime;//进程周转时间
+  private int cyclingTime;//进程周转时间
   private float RR;//当前进程的相应比
   private PCB pcb;
 
@@ -62,8 +62,8 @@ public class Process {
   public int getID() {
     return pcb.getPid();
   }
-  public int getCyclyingTime(){
-    return this.cyclyingTime;
+  public int getCyclingTime(){
+    return this.cyclingTime;
   }
   public void set(Process p){
     this.arriveTime = p.arriveTime;
@@ -85,7 +85,7 @@ public class Process {
             ", waitTime=" + waitTime +
             ", runtime=" + runtime +
             ", finishTime=" + finishTime +
-            ", cyclyingTime=" + cyclyingTime +
+            ", cyclyingTime=" + cyclingTime +
             ", RR=" + RR +
             ", state=" + pcb.getState() +
             '}';
@@ -163,6 +163,10 @@ public class Process {
 
   public String getName() {
     return name;
+  }
+
+  public void setCyclingTime(int cyclingTime) {
+    this.cyclingTime = cyclingTime;
   }
 
   public int getState(){

@@ -64,6 +64,7 @@ public static Cpu cpu;
     if(p.getServedTime()==p.getRuntime()){
       p.getPcb().setState(-1);
       p.setFinishTime(this.time);
+      p.setCyclingTime(p.getFinishTime()-p.getArriveTime());
       System.out.println(p.toString());
       return true;
     }

@@ -15,7 +15,6 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import static Component.Cpu.cpu;
-import static Component.GlobalVar.clickFlag;
 
 public class displayFrame extends JFrame {
   public static JScrollPane jsp;
@@ -132,17 +131,11 @@ public class displayFrame extends JFrame {
     this.start.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        if(!clickFlag){
-          return;
-        }
-
-        clickFlag=false;
         Process.resetList();
         cpu=new Cpu();
         String selected = (String) jcb.getSelectedItem();
         updateFrame.drawRoute(selected,p);
         displayFrame.display(cpu.getTime(),p);
-        System.out.println(1);
       }
     });
     /******按钮 “取消”的响应*****/
@@ -180,7 +173,7 @@ public class displayFrame extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        File f = new File("D:\\OS\\OS-\\title1");
+        File f = new File("D:\\2023.6.19\\OS-\\title1");
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         chooser.setCurrentDirectory(f);
 
@@ -206,14 +199,19 @@ public class displayFrame extends JFrame {
       }
     });
 
-      this.check.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-              ProcessesList.ProcessesListFrame(cpu);
-          }
-      });
+    this.load.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        new ProcessesList();
+      }
+    });
 
-
+    this.check.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        ProcessesList.ProcessesListFrame(cpu);
+      }
+    });
 
     add(jsp);
     add(this.start);
